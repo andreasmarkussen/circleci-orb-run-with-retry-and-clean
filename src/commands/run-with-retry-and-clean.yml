@@ -2,8 +2,12 @@
 description: >
   Run command with retry.
   Copied from orb: kimh/run-with-retry 
-  # What will this command do?
-  # Descriptions should be short, simple, and clear.
+  
+  This command will enable you to work with flaky tests where you need a cleanup or a catch up.
+  E.g. take the run results from the failed tests and move them to another folder, 
+  and prepare for a new run. 
+  It could also be that you want to have a follow up step, that is run no matter what. 
+  But can be run in a separate step. 
 description: Run command with retry
 parameters:
   command:
