@@ -2,10 +2,6 @@
 
 See the [documentation site for this orb](https://andreasmarkussen.github.io/circleci-orb-run-with-retry-and-clean/) 
 
-
-
-A description of your orb. Utilize this orb to easily add X to your CI/CD pipeline.
-
 **TODO:**
 Publish your production orb! You may notice the badges above and links to the registry page below are not working yet, once you publish your first production version orb, these will begin to function.
 
@@ -35,3 +31,6 @@ To publish a new production version:
 * On merge, the release will be published to the orb registry automatically.
 
 For further questions/comments about this or other orbs, visit the Orb Category of [CircleCI Discuss](https://discuss.circleci.com/c/orbs).
+
+Andreas Markussen
+[Linkedin](https://www.linkedin.com/in/andreasmarkussen/)
