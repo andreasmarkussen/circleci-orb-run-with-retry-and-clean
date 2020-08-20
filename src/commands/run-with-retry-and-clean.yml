@@ -1,14 +1,15 @@
-# How to author commands: https://circleci.com/docs/2.0/reusing-config/#authoring-reusable-commands
+# How to author commands:
+# https://circleci.com/docs/2.0/reusing-config/#authoring-reusable-commands
 description: >
   Run command with retry.
-  Copied from orb: kimh/run-with-retry 
-  
-  This command will enable you to work with flaky tests where you need a clean or a catch up.
-  E.g. take the run results from the failed tests and move them to another folder, 
-  and prepare for a new run. 
-  It could also be that you want to have a follow up step, that is run no matter what. 
-  But can be run in a separate step. 
-description: Run command with retry
+  Copied from orb: kimh/run-with-retry.
+  This command will enable you to work with flaky tests where you need
+  a clean or a catch up.
+  E.g. take the run results from the failed tests and move them
+  to another folder, and prepare for a new run.
+  It could also be that you want to have a follow up step,
+  that is run no matter what.
+  But can be run in a separate step.
 parameters:
   command:
     description: Command to run

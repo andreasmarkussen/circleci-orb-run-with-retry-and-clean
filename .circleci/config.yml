@@ -28,7 +28,7 @@ jobs:
     executor: orb-tools/ubuntu
     steps:
       - checkout
-    # - your-orb/your-orb-command
+      # - your-orb/your-orb-command
 
 workflows:
   # This `lint-pack_validate_publish-dev` workflow will run on any commit.
@@ -84,8 +84,8 @@ workflows:
           orb-name: andreasmarkussen/run-with-retry-and-clean
 
           add-pr-comment: true
-          bot-token-variable: GH_BOT_USER_TOKEN
-          bot-user: 
+          #  bot-token-variable: GH_BOT_USER_TOKEN
+          #  bot-user:
           fail-if-semver-not-indicated: true
           publish-version-tag: true
           ssh-fingerprints: x
