@@ -1,0 +1,47 @@
+# How to author commands:
+# https://circleci.com/docs/2.0/reusing-config/#authoring-reusable-commands
+description: >
+  Run command with retry.
+  Copied from orb: kimh/run-with-retry.
+  This command will enable you to work with flaky tests where you need
+  a clean or a catch up.
+  E.g. take the run results from the failed tests and move them
+  to another folder, and prepare for a new run.
+  It could also be that you want to have a follow up step,
+  that is run no matter what.
+  But can be run in a separate step.
+parameters:
+  command:
+    description: Command to run
+    type: string
+  retry-count:
+    description: Number of retry
+    type: integer
+    default: 3
+  clean-command:
+    description: Command to clean if main command failed
+    type: string
+  sleep:
+    description: Wait duration until next retry
+    type: integer
+    default: 5
+steps:
+  - run: |
+      retry() {
+         MAX_RETRY=<< parameters.retry-count >>
+         n=0
+         until [ $n -ge $MAX_RETRY ]
+         do
+            "$@" && break
+            n=$[$n+1]
+            CLEAN_COMMAND = << parameters.clean-command >>
+            echo "Running Clean Command: '$CLEAN_COMMAND' "
+            eval $CLEAN_COMMAND
+            sleep << parameters.sleep >>
+         done
+         if [ $n -ge $MAX_RETRY ]; then
+           echo "failed: ${@}" >&2
+           exit 1
+         fi
+      }
+      retry << parameters.command >>
